@@ -8,11 +8,11 @@ export const MovieCard = ({ movie }) => {
     addMovieToWatched,
     id,
     watchlist,
-    watched,
+    watched
   } = useContext(GlobalContext);
 
-  let storedMovie = watchlist.find((o) => o.id === movie.id);
-  let storedMovieWatched = watched.find((o) => o.id === movie.id);
+  let storedMovie = watchlist.find(o => o.id === movie.id);
+  let storedMovieWatched = watched.find(o => o.id === movie.id);
 
   const watchlistDisabled = storedMovie
     ? true
@@ -40,7 +40,7 @@ export const MovieCard = ({ movie }) => {
           <h3 className="title">{movie.title}</h3>
           <h3 className="title">{movie.vote_average}</h3>
           <h4 className="release-date">
-          {movie.release_date ? movie.release_date.substring(0,4) : '-'}
+            {movie.release_date ? movie.release_date.substring(0, 4) : "-"}
           </h4>
         </div>
 
@@ -52,8 +52,8 @@ export const MovieCard = ({ movie }) => {
           >
             Add to Watchlist
           </button>
-          </div>
-          <div className="btncenter">
+        </div>
+        <div className="btncenter">
           <button
             className="btntop"
             disabled={watchedDisabled}
@@ -61,12 +61,7 @@ export const MovieCard = ({ movie }) => {
           >
             Add to Watched
           </button>
-          </div>
-          <div className="btncenter">
-          <Link to={`/popular/${id}`} className="btntopbottom link">
-                Movie Detail
-              </Link>
-          </div>
+        </div>
       </div>
     </div>
   );
